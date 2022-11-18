@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    include: oauth
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://oauth-1.ckoylwknnufz.ap-northeast-2.rds.amazonaws.com:13306/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: ${RDS_ID}
+    password: ${RDS_PASSWORD}
+  jpa:
+    database: mysql   # 추가 해준 부분
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 추가 해준 부분
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 1010659403725-ftcv1dm9m8n34eqjc5dg24ics55s5tj0.apps.googleusercontent.com
+            clientSecret: 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
+            scope: profile,email
+jwt:
+  secret:
+    key: jhtjpjbp@@jpovdsdfwegheqsbthnhryfdgdfnjdfnvjlfdv12312312312312312312312312312312312312312312312312312312312312321321321312312312312312312312321321321321312qweqwewqeasdwqafqweqwewqawf1345667wfgbr
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-minutes: 420

@@ -1,0 +1,67 @@
+#server:
+#  port: 8080
+#  servlet:
+#    encoding:
+#      charset: UTF-8
+#      enabled: true
+#      force: true
+
+spring:
+  profiles:
+    include: db, file, oauth
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:mem:test
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 1010659403725-ftcv1dm9m8n34eqjc5dg24ics55s5tj0.apps.googleusercontent.com
+            clientSecret: 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
+            scope: profile,email
+
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+server:
+  servlet:
+    encoding:
+      force-response: true
+mail:
+  address:
+    admin: dudtjrdl1492@gmail.com
+jwt:
+  secret:
+    key: jhtjpjbp@@jpovdsdfwegheqsbthnhryfdgdfnjdfnvjlfdv12312312312312312312312312312312312312312312312312312312312312321321321312312312312312312312321321321321312qweqwewqeasdwqafqweqwewqawf1345667wfgbr
+  access-token-expiration-minutes: 30
+  refresh-token-expiration-minutes: 420
+
+#file:
+#  profileImg: ProfileImg/
+#  boardImg: BoardImg/
+#  itineraryImg: ItineraryImg/
+
+#iam:
+#  access-key: ${S3_ACCESS_KEY}
+#  secret-key: ${S3_SECRET_KEY}
+#
+#cloud:
+#  aws:
+#    region:
+#      static: ap-northeast-2
+#    stack:
+#      auto: false
+#
+#env: server
+#logTracer: false
